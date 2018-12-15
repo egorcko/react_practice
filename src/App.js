@@ -1,31 +1,55 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
 import styled from 'styled-components';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <SayFullName name="Егор" surname="Гвоздев" link="vk.com" />
-        <SayFullName name="Иван" surname="Иванов" link="instagram.com" />
-        <SayFullName name="Петр" surname="Петров" link="facebook.com" />
-      </div>
-    );
-  }
-}
+import Header from './components/Header.jsx';
+import Navigation from './components/Navigation.jsx';
+import Main from './components/Main.jsx';
 
-const SayFullName = (props) => {
-  return (
-    <div>
-      <h1>Мое имя {props.name}, фамилия {props.surname}</h1>
-      <a href={props.link}>Ссылка на мой профиль</a>
-    </div>
-  );
+const url = process.env.PUBLIC_URL + '/img/main_bg.png';
+
+const NavWrapper = styled.header`
+   width: 100;
+   background-color: #242424;
+   opacity: 0.8;
+`
+const HeaderWrapper = styled.div`
+   background-color: #fff;
+   color: #464646;
+   padding: 20px 0;
+   display: flex;
+   align-items: center;
+`
+const MainWrapper = styled.main`
+   background: url(${url}) no-repeat left center / cover;
+   min-height: 600px;
+   display: flex;
+   align-items: center;
+`
+class App extends Component {
+   render() {
+      return (
+         <div className="App">
+            <NavWrapper>
+               <Grid>
+                  <Navigation/>
+               </Grid>
+            </NavWrapper>
+            <HeaderWrapper>
+               <Grid>
+                  <Header/>
+               </Grid>
+            </HeaderWrapper>
+            <MainWrapper>
+               <Grid>
+                  <Main></Main>
+               </Grid>
+            </MainWrapper>
+         </div>
+      );
+   }
 }
 
 export default App;
