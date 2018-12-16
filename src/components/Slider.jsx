@@ -95,7 +95,7 @@ class Slider extends Component {
                 key = {index}
                 ref = 'dots'
                 onClick = {this.dots.bind(this, index)}>
-                <a>&#9679;</a>
+                <span>&#9679;</span>
             </li>
         ))
     }
@@ -150,11 +150,11 @@ class Slider extends Component {
                 </div>
                 {this.renderArrows()}
                 <ul className="dots-container">{this.renderDots()}</ul>
-                <a 
+                <span 
                     className="toggle-play"
                     onClick = {this.toggleAutoplay}>
                     {this.renderPlayStop()}
-                </a>
+                </span>
             </div>
         )
     }
